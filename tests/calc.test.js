@@ -131,4 +131,11 @@ t("Onvoldoende invoer", () => {
   assert.match(tekst(r), /minimaal pH en pCO₂/);
 });
 
+t("Weergave referentie-interval", () => {
+  assert.equal(C.refTekst({ lo: "3,5", hi: "5,0" }), "3,5–5,0");
+  assert.equal(C.refTekst({ lo: null, hi: "45" }), "< 45");
+  assert.equal(C.refTekst({ lo: "90", hi: null }), "> 90");
+  assert.equal(C.refTekst({ lo: "−3,0", hi: "+3,0" }), "−3,0 tot +3,0");
+});
+
 console.log(`\n${n} tests geslaagd`);
