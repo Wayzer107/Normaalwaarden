@@ -6,7 +6,7 @@ bloedgas in **kPa**.
 
 Inhoud:
 
-- 130 bepalingen in 16 categorieën (bloedgas, elektrolyten, nier, lever/pancreas, hart/spier, ontsteking, glucose,
+- 131 bepalingen in 16 categorieën (bloedgas, elektrolyten, nier, lever/pancreas, hart/spier, ontsteking, glucose,
   lipiden, ijzer/anemie, endocrinologie, hematologie, stolling, vitaminen, immunologie, tumormarkers, overig)
 - per bepaling: representatief referentie-interval (man/vrouw waar relevant), **spreiding tussen Nederlandse
   laboratoria**, oorzaken van verhoogde/verlaagde waarden en praktische opmerkingen

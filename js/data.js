@@ -118,7 +118,7 @@
               tekst: "8–16 (zonder K⁺)",
               spreiding: "Erasmus MC (formule met K⁺: Na⁺ + K⁺ − HCO₃⁻ − Cl⁻): 13–17 mmol/L. Zonder K⁺ is de normaalwaarde methode- en laboratoriumafhankelijk.",
               hoog: "Verhoogd anion gap: lactaat, ketonen, nierfalen (fosfaat/sulfaat), intoxicaties (methanol, ethyleenglycol, salicylaten, paracetamol/5-oxoproline).",
-              laag: "Hypoalbuminemie (corrigeer: AG + 0,25 × (44 − albumine in g/L)), paraproteïne, lithium/brom.",
+              laag: "Hypoalbuminemie (corrigeer: AG + 0,25 × (44 − albumine in g/L)), IgG-paraproteïne (myeloom), lithium- of bromide-intoxicatie.",
               noot: "Bij een lage albumine onderschat de ongecorrigeerde anion gap een metabole acidose. Zie ‘Rekenhulpen’ voor de berekening inclusief delta-ratio."
             }
           ]
@@ -243,7 +243,7 @@
               spreiding: "SALT 22–29 (12–60 jaar), 23–31 (> 60 jaar) · Erasmus MC 21,0–27,0 · Zuyderland 23–28.",
               laag: "Metabole acidose; compensatie van respiratoire alkalose.",
               hoog: "Metabole alkalose; compensatie van respiratoire acidose.",
-              noot: "Serumbicarbonaat is minder nauwkeurig dan de waarde uit een bloedgas (verlies van CO₂ in het monster)."
+              noot: "Gemeten als totaal CO₂ (ca. 1 mmol/L hoger dan het berekende HCO₃⁻ op het bloedgas). Onvoldoende gevulde of lang open gestane buizen geven door CO₂-verlies valselijk lage waarden."
             },
             {
               id: "osm",
@@ -336,7 +336,7 @@
                 "Man/vrouw: Erasmus MC 65–115 / 55–90 · Zuyderland 70–110 / 55–95 · Franciscus en SALT 59–104 / 45–84 · SCAL/Spijkenisse 65–105 / 50–90.",
               hoog: "Verminderde nierfunctie (prerenaal, intrinsiek renaal, postrenaal); ook hoge spiermassa, rhabdomyolyse, trimethoprim/cimetidine (remmen tubulaire secretie).",
               laag: "Lage spiermassa (ouderen, cachexie, amputatie), zwangerschap.",
-              noot: "Kreatinine stijgt pas bij een eGFR-daling van ca. 50 %; bij acute nierschade loopt de stijging achter op de werkelijke daling (KDIGO: stijging ≥ 26 µmol/L binnen 48 uur of ≥ 1,5 × basiswaarde)."
+              noot: "Kreatinine kan binnen de referentie blijven tot de GFR met ca. 50 % is gedaald; bij acute nierschade loopt de stijging achter op de werkelijke daling (KDIGO: stijging ≥ 26 µmol/L binnen 48 uur of ≥ 1,5 × basiswaarde)."
             },
             {
               id: "egfr",
@@ -361,7 +361,7 @@
               spreiding: "Zuyderland 3,5–7,5 · SALT 3,0–7,0 · SCAL 2,5–7,0 · Franciscus > 49 jaar: man 3,0–9,2, vrouw 3,5–7,2.",
               hoog: "Nierfunctiestoornis, dehydratie/prerenaal, gastro-intestinale bloeding, hoge eiwitinname, katabolisme (corticosteroïden, sepsis).",
               laag: "Lage eiwitinname, ernstige leverziekte, overhydratie, zwangerschap.",
-              noot: "Ureum/kreatinine-verhouding helpt bij onderscheid tussen prerenale oorzaak en intrinsiek renaal. Let op: in Nederland ureum in mmol/L, niet BUN in mg/dL (zie Omrekenen)."
+              noot: "Vuistregel: ureum (mmol/L) ÷ kreatinine (µmol/L) × 1000 > 100 past bij een prerenale oorzaak of hoge GI-bloeding. Let op: in Nederland ureum in mmol/L, niet BUN in mg/dL (zie Omrekenen)."
             },
             {
               id: "cysc",
@@ -373,7 +373,7 @@
               tekst: "Leeftijdsafhankelijk, zie details",
               spreiding:
                 "Erasmus MC, man: 23–29 jr 0,60–1,03 · 40–49 jr 0,68–1,22 · 60–69 jr 0,77–1,42 · > 70 jr 0,82–1,53 · vrouw: 23–29 jr 0,57–0,90 · 40–49 jr 0,62–1,07 · 60–69 jr 0,66–1,26 · > 70 jr 0,68–1,36.",
-              hoog: "Verminderde GFR; ook bij hoge ontstekingsactiviteit, schildklierfunctiestoornissen en corticosteroïden.",
+              hoog: "Verminderde GFR; ook verhoogd bij hyperthyreoïdie, corticosteroïdgebruik en ontsteking (verlaagd bij hypothyreoïdie).",
               noot: "Nuttig wanneer kreatinine onbetrouwbaar is (extreme spiermassa, cachexie)."
             },
             {
@@ -441,7 +441,7 @@
               spreiding:
                 "Erasmus MC: man 41–115 (18–49 jr), 43–115 (≥ 50 jr); vrouw 39–98 (18–49 jr), 47–98 (≥ 50 jr) · Zuyderland: man < 115, vrouw < 98 · Franciscus 0–125.",
               hoog: "Cholestase (intra-/extrahepatisch), botziekten (Paget, metastasen, osteomalacie, fractuurherstel), zwangerschap (placentair), infiltratieve leverziekte.",
-              laag: "Hypofosfatasie, zinktekort, ernstige anemie, coeliakie (zelden).",
+              laag: "Hypofosfatasie, zink- of magnesiumtekort, hypothyreoïdie, ondervoeding, pernicieuze anemie, fulminante ziekte van Wilson.",
               noot: "Combineren met GGT: beide verhoogd wijst op lever/galweg."
             },
             {
@@ -526,7 +526,7 @@
               eenheid: "U/L",
               ref: ALL("13", "60"),
               spreiding: "Erasmus MC en Zuyderland 13–60 · Franciscus 8–78.",
-              hoog: "Acute pancreatitis (diagnose bij > 3 × bovengrens van normaal in combinatie met klachten/beeldvorming), nierfalen, galwegobstructie.",
+              hoog: "Acute pancreatitis: lipase (of amylase) > 3 × bovengrens is één van de drie criteria (herziene Atlanta: 2 van 3 – typische buikpijn, enzymen > 3 × bovengrens, passende beeldvorming). Ook bij nierfalen, galwegobstructie, darmischemie.",
               noot: "Hoogte correleert niet met de ernst van de pancreatitis."
             }
           ]
@@ -555,7 +555,7 @@
               hoog:
                 "Myocardschade: acuut myocardinfarct, myocarditis, longembolie, sepsis, tachyaritmie, hartfalen, nierinsufficiëntie (chronisch licht verhoogd), na reanimatie of cardioversie.",
               noot:
-                "Geslachtsspecifiek 99e percentiel (Roche Elecsys): vrouw 9, man 16 ng/L. ESC 0/1-uurspad (hs-cTnT): uitsluiten bij 0 u < 5 ng/L; aantonen bij ≥ 52 ng/L; Δ 0–1 u < 3 uitsluiten, ≥ 5 aantonen. Beoordeel een stijging/daling (delta); een verhoogde waarde is niet gelijk aan myocardinfarct."
+                "Geslachtsspecifiek 99e percentiel (Roche Elecsys): vrouw 9, man 16 ng/L. ESC 0/1-uurspad (hs-cTnT): uitsluiten bij 0 u < 5 ng/L (klachten > 3 uur) of 0 u < 12 ng/L met Δ 0–1 u < 3; aantonen bij 0 u ≥ 52 ng/L of Δ 0–1 u ≥ 5; overige: observatiezone. Beoordeel een stijging/daling (delta); een verhoogde waarde is niet gelijk aan myocardinfarct."
             },
             {
               id: "ntprobnp",
@@ -596,7 +596,7 @@
               ref: MV([null, "7,6"], [null, "4,7"]),
               spreiding: "Erasmus MC.",
               hoog: "Myocardschade (niet specifiek; troponine heeft de voorkeur).",
-              noot: "Heeft zijn diagnostische rol voor myocardinfarct grotendeels verloren; vooral nuttig bij verdenking op re-infarct."
+              noot: "Heeft geen plaats meer in de standaarddiagnostiek van het myocardinfarct; troponine heeft de voorkeur, ook bij verdenking op een re-infarct."
             },
             {
               id: "myo",
@@ -641,7 +641,7 @@
               spreiding: "Erasmus MC, Zuyderland, Spijkenisse MC: < 10 · Franciscus (> 17 jaar) 0–5 · SALT ≤ 5,0.",
               hoog:
                 "Bacteriële infectie (stijgt na 6–12 uur, piek na 24–48 uur), weefselschade, reumatische ziekten, maligniteit. Virale infecties meestal beperkt verhoogd, maar kunnen hoog zijn.",
-              noot: "Lage CRP sluit een bacteriële infectie in de eerste uren niet uit. Een snelle CRP-test (POCT) wordt in de huisartsenpraktijk gebruikt bij lagere luchtweginfecties."
+              noot: "Lage CRP sluit een bacteriële infectie in de eerste uren niet uit. NHG-Standaard Acuut hoesten (POCT-CRP bij verdenking pneumonie): < 20 mg/L pneumonie onwaarschijnlijk · 20–100 mg/L afhankelijk van klinisch beeld · > 100 mg/L pneumonie waarschijnlijk."
             },
             {
               id: "pct",
@@ -699,7 +699,7 @@
               afk: "Glu postprandiaal",
               eenheid: "mmol/L",
               ref: ALL(null, "7,8"),
-              spreiding: "Erasmus MC: niet nuchter < 7,8 normaal · 7,8–11,0 gestoorde glucosetolerantie (IGT) · ≥ 11,1 diabetes mellitus. Franciscus 4,0–11,0 (algemeen).",
+              spreiding: "Erasmus MC: niet nuchter < 7,8 normaal · 7,8–11,0 verhoogd (nuchtere glucose bepalen; ‘gestoorde glucosetolerantie’ alleen vast te stellen met OGTT) · ≥ 11,1 diabetes mellitus. Franciscus 4,0–11,0 (algemeen).",
               noot: "Bij een orale glucosetolerantietest (OGTT): nuchter < 7,0 en na 2 uur < 7,8 (Franciscus)."
             },
             {
@@ -710,8 +710,8 @@
               ref: ALL("20", "42"),
               spreiding: "Zuyderland en Franciscus 20–42 · Erasmus MC 26–42 · SALT (niet-diabeet) 29–42.",
               hoog:
-                "Diabetes mellitus: HbA1c ≥ 48 mmol/mol (6,5 %) is de internationale (WHO/ADA) diagnostische grens; 42–47 verhoogd risico (prediabetes, WHO). Streefwaarden bij diabetes worden individueel bepaald (bij DM2 doorgaans ≈ 53 mmol/mol).",
-              noot: "Onbetrouwbaar bij hemolytische anemie, recente bloeding of transfusie, ijzer- of B12-tekort, nierfalen en hemoglobinopathie (varianten)."
+                "Diabetes mellitus: HbA1c ≥ 48 mmol/mol (6,5 %) is de internationale (WHO/ADA) diagnostische grens; 42–47 verhoogd risico (prediabetes, WHO). Streefwaarden bij diabetes worden individueel bepaald (DM2 meestal ≤ 53 mmol/mol; ruimer bij ouderen en kwetsbare patiënten, NHG).",
+              noot: "Onbetrouwbaar bij hemolytische anemie, recente bloeding of transfusie (valselijk laag), ijzer- of B12-tekort (valselijk hoog), nierfalen, zwangerschap en hemoglobinopathie (varianten)."
             },
             {
               id: "ketonen",
@@ -720,7 +720,7 @@
               eenheid: "mmol/L",
               ref: ALL("0,06", "0,20"),
               spreiding: "Erasmus MC β-hydroxyboterzuur 0,06–0,2 · Franciscus POCT-ketonen 0,0–0,6.",
-              hoog: "Ketoacidose: diabetische (DKA), alcoholische, hongerketose. Bij diabetes: ≥ 1,5–3 mmol/L (POCT) is verdacht, ≥ 3 mmol/L = hoog risico op DKA.",
+              hoog: "Ketoacidose: diabetische (DKA, ook euglykemisch bij SGLT2-remmers), alcoholische, hongerketose. POCT bij diabetes: 0,6–1,5 licht verhoogd · 1,5–3,0 risico op DKA · ≥ 3,0 mmol/L DKA waarschijnlijk (beoordeel met bloedgas).",
               noot: "Het ‘dipstick’-urineketon (acetoacetaat) onderschat β-hydroxyboterzuur."
             },
             {
@@ -842,7 +842,7 @@
                 "Man/vrouw: Erasmus MC 30–240 / 10–140 · Franciscus 22–275 / 22–204 · Zuyderland man (> 15 jr) 30–400, vrouw 13–150 (15–60 jr) en 30–400 (> 60 jr) · SALT 30–409 / 30–175 (18–50 jr).",
               laag: "IJzertekort (specifiek). Ferritine < 30 µg/L maakt ijzergebrek waarschijnlijk; bij ontsteking, nierziekte of hartfalen kunnen hogere afkapwaarden (tot ca. 100 µg/L) gelden – grenzen verschillen per richtlijn.",
               hoog: "Acute-fase-reactie (ontsteking, infectie, maligniteit), leverziekte, hemochromatose/ijzerstapeling, alcohol, MASLD, hemofagocytaire lymfohistiocytose (zeer hoog).",
-              noot: "Ferritine is een acute-fase-eiwit; bij verhoogd CRP is een normale waarde geen sluitend bewijs tegen ijzergebrek."
+              noot: "Let op: de ondergrens van het referentie-interval (vrouw 10 µg/L) ligt onder de klinische afkapwaarde voor ijzergebrek (< 30 µg/L); een waarde ‘binnen de referentie’ sluit ijzergebrek dus niet uit. Ferritine is bovendien een acute-fase-eiwit."
             },
             {
               id: "ijzer",
@@ -888,7 +888,7 @@
               eenheid: "pmol/L",
               ref: ALL("145", "637"),
               spreiding: "Erasmus MC 145–637 · SALT 130–700. Een tekort wordt waarschijnlijk bij < ca. 150 pmol/L; bij 150–250 pmol/L ‘grijs gebied’ → methylmalonzuur (MMA) of actief B12 (holotranscobalamine) bepalen.",
-              laag: "Pernicieuze anemie (auto-immuun gastritis), strikt veganistisch dieet, ileumresectie/Crohn, metformine, PPI’s/H2-blokkers, distomen- en lachgasgebruik (functioneel tekort).",
+              laag: "Pernicieuze anemie (auto-immuun gastritis), strikt veganistisch dieet, ileumresectie/Crohn, metformine, PPI’s/H2-blokkers, lachgasgebruik (functioneel tekort; MMA/homocysteïne verhoogd bij normaal B12).",
               noot: "Aan te vullen met MMA/homocysteïne bij twijfel. Waarden zijn immunoassay-afhankelijk."
             },
             {
@@ -961,9 +961,9 @@
               eenheid: "mU/L",
               ref: ALL("0,27", "4,20"),
               spreiding: "Zuyderland en SALT 0,27–4,2 · Franciscus 0,35–4,94.",
-              hoog: "Primaire hypothyreoïdie (Hashimoto, thyreoïdectomie, jodiumtekort), herstelfase van thyreoïditis, onvoldoende levothyroxine; bij gebruik van biotine kunnen immunoassays verstoord raken.",
+              hoog: "Primaire hypothyreoïdie (Hashimoto, thyreoïdectomie, na radioactief jodium, amiodaron, lithium), herstelfase van thyreoïditis, onvoldoende levothyroxine of slechte therapietrouw.",
               laag: "Hyperthyreoïdie (Graves, toxisch adenoom, thyreoïditis), te hoge levothyroxine-dosis; centrale hypothyreoïdie (laag-normaal TSH met laag FT4); niet-thyroïdale ziekte, zwangerschap (eerste trimester).",
-              noot: "TSH is de eerste test voor schildklierfunctie; bepaal FT4 bij afwijkend TSH of bij verdenking op centrale oorzaak."
+              noot: "TSH is de eerste test voor schildklierfunctie; bepaal FT4 bij afwijkend TSH of bij verdenking op centrale oorzaak. Hoge dosis biotine kan TSH (sandwich-assay) valselijk verlagen en FT4 (competitieve assay) valselijk verhogen – dit lijkt op hyperthyreoïdie."
             },
             {
               id: "ft4",
@@ -972,7 +972,7 @@
               eenheid: "pmol/L",
               ref: ALL("11", "22"),
               spreiding: "Zuyderland 11–22 · Franciscus 9–19 (> 19 jaar). Sterk assay-afhankelijk.",
-              hoog: "Hyperthyreoïdie, overmatige levothyroxine, amiodaron (vroeg), heparine (artefact in vitro).",
+              hoog: "Hyperthyreoïdie, overmatige levothyroxine, amiodaron, heparine (artefact in vitro), biotine (assay-interferentie).",
               laag: "Hypothyreoïdie, centrale hypothyreoïdie, ernstige niet-thyroïdale ziekte.",
               noot: "Bij verdenking op centrale hypothyreoïdie: TSH normaal of laag + FT4 laag."
             },
@@ -1001,7 +1001,7 @@
               tekst: "ca. 100–700 (assay-afhankelijk)",
               spreiding: "Zuyderland 08–09 uur 140–690 · Franciscus < 10 uur 101–536, > 17 uur 79–478.",
               laag: "Bijnierinsufficiëntie: ochtendcortisol < ca. 100 nmol/L maakt insufficiëntie zeer waarschijnlijk; > ca. 400–500 nmol/L sluit dit vrijwel uit (grenzen assayafhankelijk); tussenwaarden: synacthentest.",
-              hoog: "Syndroom van Cushing (dag-nachtritme verdwenen), stress, oestrogeen (door CBG-stijging), orale anticonceptie.",
+              hoog: "Syndroom van Cushing (dag-nachtritme verdwenen), acute ziekte/stress, oestrogeengebruik of zwangerschap (door stijging van CBG).",
               noot: "Diurnale ritme: ’s avonds ca. 50 % van ochtendwaarde. Prednisolon geeft kruisreactie in veel assays."
             },
             {
@@ -1025,6 +1025,16 @@
               laag: "Onvoldoende zonlicht/huidpigmentatie, malabsorptie, nierziekte, lever, anticonvulsiva.",
               hoog: "Intoxicatie bij overdosering (> 250 nmol/L); hypercalciëmie.",
               noot: "Alleen bepalen bij een duidelijke indicatie (o.a. botziekte, malabsorptie); suppletiebeleid volgens Gezondheidsraad/Voedingscentrum en de geldende richtlijnen."
+            },
+            {
+              id: "prl",
+              naam: "Prolactine",
+              afk: "PRL",
+              eenheid: "U/L",
+              ref: MV(["0,05", "0,36"], ["0,04", "0,53"]),
+              spreiding: "Zuyderland. Sommige laboratoria rapporteren in µg/L (1 µg/L ≈ 0,021 U/L; bovengrens dan ca. 15–25 µg/L).",
+              hoog: "Medicatie (antipsychotica, metoclopramide, domperidon, SSRI’s), zwangerschap/borstvoeding, prolactinoom, hypothyreoïdie, nierfalen, stress/venapunctie, hypofysesteelcompressie, macroprolactine.",
+              noot: "Licht verhoogd zonder klachten: herhalen in rust en macroprolactine laten bepalen."
             },
             {
               id: "testo",
@@ -1254,7 +1264,7 @@
               eenheid: "g/L",
               ref: ALL("2,0", "4,0"),
               spreiding: "Franciscus en SALT 2,0–4,0 · Zuyderland 2,0–5,0.",
-              laag: "DIC, ernstige leverziekte, massaal bloedverlies, hyperfibrinolyse, congenitale (a)fibrinogenemie, asparaginase. Ernstig < 1,0 g/L: substitutie overwegen.",
+              laag: "DIC, ernstige leverziekte, massaal bloedverlies, hyperfibrinolyse, congenitale (a)fibrinogenemie, asparaginase. Bij actieve bloeding wordt suppletie doorgaans overwogen bij < 1,5–2,0 g/L (lokaal transfusieprotocol).",
               hoog: "Acute-fase-reactie, zwangerschap, roken."
             },
             {
@@ -1267,7 +1277,7 @@
               spreiding:
                 "Franciscus < 0,50 mg/L · Zuyderland ≤ 50 jaar < 500 µg/L; > 50 jaar leeftijd × 10 µg/L (bijv. 70 jaar → < 700 µg/L).",
               hoog: "Trombo-embolie (DVT, longembolie), DIC, infectie/sepsis, maligniteit, trauma/chirurgie, zwangerschap, hoge leeftijd, aortadissectie.",
-              noot: "Alleen bruikbaar om trombo-embolie uit te sluiten bij een lage of matige klinische kans (Wells/YEARS). Let op de eenheid: FEU-assays versus DDU-assays (DDU-waarden zijn ongeveer de helft); leeftijdsgecorrigeerde afkap bij > 50 jaar."
+              noot: "Alleen bruikbaar om trombo-embolie uit te sluiten bij een lage of matige klinische kans. YEARS-algoritme (longembolie): geen YEARS-items → afkap 1,0 mg/L; ≥ 1 item → 0,5 mg/L. Bij DVT: Wells. Let op de eenheid: FEU-assays versus DDU-assays (DDU-waarden zijn ongeveer de helft); leeftijdsgecorrigeerde afkap bij > 50 jaar."
             },
             {
               id: "tt",
@@ -1416,7 +1426,7 @@
               eenheid: "g/L",
               ref: ALL("0,7", "4,0"),
               spreiding: "Erasmus MC 0,76–3,90 (> 18 jaar) · Zuyderland 0,7–4,0.",
-              laag: "Selectief IgA-deficiëntie (vaak asymptomatisch; kan coeliakie-serologie beïnvloeden → IgG-gebaseerde tests)."
+              laag: "Selectieve IgA-deficiëntie (vaak asymptomatisch; maakt IgA-anti-tTG onbetrouwbaar → IgG-gebaseerde coeliakieserologie)."
             },
             {
               id: "igm",
