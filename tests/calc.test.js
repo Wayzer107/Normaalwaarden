@@ -68,6 +68,11 @@ t("Omrekeningen", () => {
 const run = (inv) => C.interpreteerBloedgas(inv);
 const tekst = (r) => r.regels.map((x) => x.tekst).join("\n");
 
+t("pCO2 6,2 kPa valt binnen de (lab)referentie 4,7–6,4", () => {
+  const r = C.interpreteerBloedgas({ ph: 7.4, pco2: 6.2, hco3: 25 });
+  assert.match(r.regels.map((x) => x.tekst).join("\n"), /Geen zuur-base-stoornis/);
+});
+
 t("Normaal bloedgas", () => {
   const r = run({ ph: 7.4, pco2: 5.3, hco3: 24 });
   assert.match(tekst(r), /Geen zuur-base-stoornis/);
