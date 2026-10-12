@@ -16,6 +16,7 @@
     const td = el("td", "v");
     if (t.tekst || t.ref.all) {
       td.textContent = t.tekst || C.refTekst(t.ref.all);
+      if (t.mmhg) td.append(el("span", "mv mmhg", t.mmhg + " mmHg"));
       return td;
     }
     for (const [tag, r] of [["M", t.ref.m], ["V", t.ref.v]]) {

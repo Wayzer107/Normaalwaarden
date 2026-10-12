@@ -24,7 +24,7 @@
       titel: "Bloedgas",
       kort: "Bloedgas",
       intro:
-        "Arterieel bloedgas bij volwassenen. In Nederland worden pCO₂ en pO₂ uitgedrukt in kPa (niet mmHg); bij kPa-waarden staat de omrekening naar mmHg erbij voor het lezen van internationale literatuur. Intervallen verschillen per laboratorium en analyser – de spreiding tussen Nederlandse laboratoria staat onder ‘Details’.",
+        "Arterieel bloedgas bij volwassenen. pCO₂ en pO₂ worden door de meeste Nederlandse laboratoria in kPa gerapporteerd, door sommige (o.a. Franciscus) in mmHg; beide eenheden staan hieronder. Intervallen verschillen per laboratorium en analyser – de spreiding tussen Nederlandse laboratoria staat onder ‘Details’.",
       groepen: [
         {
           titel: "Arterieel bloedgas",
@@ -45,12 +45,13 @@
               naam: "pCO₂ (arterieel)",
               afk: "PaCO₂",
               eenheid: "kPa",
-              ref: ALL("4,7", "6,0"),
+              ref: ALL("4,7", "6,4"),
+              mmhg: "35–48",
               spreiding:
-                "Erasmus MC 4,0–6,4 · Deventer Ziekenhuis 4,2–6,2 · Zuyderland 4,7–6,4 · Franciscus 35–48 mmHg (≈ 4,7–6,4 kPa). De klassieke grenzen 35–45 mmHg (4,7–6,0 kPa) zijn hier als referentie aangehouden; veel laboratoria rapporteren een bovengrens tot 6,4 kPa.",
+                "Zuyderland 4,7–6,4 kPa · Franciscus 35–48 mmHg · Erasmus MC 4,0–6,4 kPa · Deventer Ziekenhuis 4,2–6,2 kPa. Klassieke leerboekgrenzen: 4,7–6,0 kPa (35–45 mmHg).",
               hoog: "Hypercapnie (hypoventilatie): COPD, neuromusculaire ziekte, sedativa/opioïden, obesitas-hypoventilatie, uitputting, CZS-depressie. Ook compensatie van metabole alkalose.",
               laag: "Hypocapnie (hyperventilatie): angst/pijn, hypoxemie, longembolie, sepsis, salicylaten, zwangerschap, compensatie van metabole acidose.",
-              noot: "Veneus pCO₂ ligt gemiddeld 0,5–0,8 kPa hoger dan arterieel (Erasmus MC veneus: 4,7–6,4 kPa)."
+              noot: "Veneus pCO₂ ligt gemiddeld 0,5–0,8 kPa (4–6 mmHg) hoger dan arterieel (Erasmus MC veneus: 4,7–6,4 kPa)."
             },
             {
               id: "po2",
@@ -58,9 +59,10 @@
               afk: "PaO₂",
               eenheid: "kPa",
               ref: ALL("10,0", "13,3"),
+              mmhg: "75–100",
               noCheckHoog: true,
               spreiding: "Erasmus MC 10,0–13,3 · Deventer Ziekenhuis 9,5–13,5 · Zuyderland 9,2–13,0 (kamerlucht, jonge volwassene).",
-              laag: "Hypoxemie. PaO₂ < 8,0 kPa (60 mmHg) bij kamerlucht = respiratoire insufficiëntie (type 1 bij normale pCO₂, type 2 bij pCO₂ > 6,0 kPa). Oorzaken: ventilatie-perfusiemismatch, shunt, diffusiestoornis, hypoventilatie, grote hoogte.",
+              laag: "Hypoxemie. PaO₂ < 8,0 kPa (60 mmHg) bij kamerlucht = respiratoire insufficiëntie (type 1 bij normale pCO₂, type 2 bij hypercapnie, pCO₂ > 6,4 kPa / 48 mmHg). Oorzaken: ventilatie-perfusiemismatch, shunt, diffusiestoornis, hypoventilatie, grote hoogte.",
               hoog: "Alleen interpreteerbaar met de FiO₂: waarden boven het gebruikelijke bereik zijn normaal onder zuurstoftoediening. Gebruik de P/F-ratio.",
               noot: "De pO₂ daalt fysiologisch met de leeftijd; als vuistregel PaO₂ (kPa) ≈ 13,3 − 0,044 × leeftijd (jaren). Onder zuurstoftherapie: bereken P/F-ratio (pO₂/FiO₂, normaal > 53 kPa) – zie de bloedgas-interpretatie."
             },

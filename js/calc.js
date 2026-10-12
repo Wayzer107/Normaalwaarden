@@ -106,7 +106,7 @@
     phLaag: 7.35,
     phHoog: 7.45,
     pco2Laag: 4.7,
-    pco2Hoog: 6.0,
+    pco2Hoog: 6.4,
     hco3Laag: 22,
     hco3Hoog: 26
   };

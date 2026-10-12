@@ -129,7 +129,7 @@
       wrap.append(el("span", { class: "val", text: t.tekst }));
     } else if (t.ref.all) {
       wrap.append(el("span", { class: "val", text: refTekst(t.ref.all) }));
-      if (t.eenheid === "kPa") wrap.append(el("span", { class: "alt", text: mmHgTekst(t.ref.all) }));
+      if (t.eenheid === "kPa") wrap.append(el("span", { class: "val mmhg", text: (t.mmhg || mmHgTekst(t.ref.all).replace(/^≈ /, "").replace(/ mmHg$/, "")) + " mmHg" }));
     } else {
       wrap.append(
         el("span", { class: "val ref-m" }, el("span", { class: "tag", text: "M" }), refTekst(t.ref.m)),
@@ -347,7 +347,7 @@
       checkables.push(t);
       list.append(el("option", { value: t.naam }));
     });
-    ["#check-test", "#check-sex", "#check-val"].forEach((id) => $(id).addEventListener("input", runCheck));
+    ["#check-test", "#check-sex", "#check-val", "#check-unit-sel"].forEach((id) => $(id).addEventListener("input", runCheck));
   }
 
   function findTest(name) {
@@ -371,14 +371,18 @@
     const out = $("#check-out");
     out.textContent = "";
     const t = findTest($("#check-test").value);
-    $("#check-unit").textContent = t ? `(${t.eenheid})` : "";
+    const isKpa = !!t && t.eenheid === "kPa";
+    $("#check-unit-field").hidden = !isKpa;
+    const inMmHg = isKpa && $("#check-unit-sel").value === "mmHg";
+    $("#check-unit").textContent = t && !isKpa ? `(${t.eenheid})` : "";
     const raw = $("#check-val").value;
     if (!t) {
       if ($("#check-test").value.trim()) out.append(el("p", { class: "mut", text: "Bepaling niet (eenduidig) herkend – kies een naam uit de lijst." }));
       return;
     }
-    const v = parseNum(raw);
-    if (Number.isNaN(v)) return;
+    const vIn = parseNum(raw);
+    if (Number.isNaN(vIn)) return;
+    const v = inMmHg ? C.mmHgToKpa(vIn) : vIn;
 
     if (t.noCheck) {
       out.append(el("div", { class: "pill-row" }, el("span", { class: "mut", text: `${t.naam}: het referentie-interval is leeftijds- of methodeafhankelijk (${t.tekst || "zie details"}). Raadpleeg de details en uw eigen laboratorium.` })));
@@ -388,15 +392,21 @@
     const r = t.ref.all || (sex === "v" ? t.ref.v : t.ref.m);
     let st = status(r, v);
     if (t.noCheckHoog && st === "hoog") st = "ok";
-    const tekstRef = t.tekst && t.ref.all ? t.tekst : refTekst(r);
+    let tekstRef = t.tekst && t.ref.all ? t.tekst : refTekst(r);
+    let eenheid = t.eenheid;
+    if (inMmHg) {
+      tekstRef = `${t.mmhg || ""} mmHg (${refTekst(r)} kPa)`;
+      eenheid = "";
+    }
     const geslachtTxt = t.ref.all ? "" : sex === "v" ? " (vrouw)" : " (man)";
     const label = { laag: "Verlaagd", hoog: "Verhoogd", ok: "Binnen referentie" }[st];
-    const vTxt = String(v).replace(".", ",");
+    const vTxt = String(vIn).replace(".", ",");
+    const vEenheid = inMmHg ? "mmHg" : t.eenheid;
     const row = el(
       "div",
       { class: "pill-row " + st },
       el("span", { class: "pill " + st, text: label }),
-      el("span", {}, el("strong", { text: `${t.naam}: ${vTxt} ${t.eenheid}` }), ` – referentie${geslachtTxt} ${tekstRef} ${t.eenheid}`)
+      el("span", {}, el("strong", { text: `${t.naam}: ${vTxt} ${vEenheid}` }), ` – referentie${geslachtTxt} ${tekstRef} ${eenheid}`.trimEnd())
     );
     out.append(row);
     if (t.noCheckHoog && st === "ok" && r && r.hiN != null && v > r.hiN) {
