@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Normaalwaarden NL – Serum en bloedgas</title>
+  <meta name="description" content="Overzicht van referentiewaarden van serum en bloedgas voor volwassenen, volgens de Nederlandse laboratoriumpraktijk (SI-eenheden, kPa), met bloedgas-interpretatie en rekenhulpen.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b6b78'/%3E%3Cpath d='M32 10c8 12 16 20 16 31a16 16 0 0 1-32 0c0-11 8-19 16-31z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("nw-theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body data-sex="alle">
+  <a class="skip" href="#content">Ga naar de inhoud</a>
+
+  <header class="top">
+    <div class="wrap top-inner">
+      <div class="brand">
+        <h1>Normaalwaarden <span class="nl">NL</span></h1>
+        <p>Serum en bloedgas bij volwassenen &ndash; Nederlandse laboratoriumpraktijk</p>
+      </div>
+      <button id="theme" class="icon-btn" type="button" aria-label="Wissel tussen licht en donker thema" title="Thema wisselen">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.5-.05-1-.14-1.47A6 6 0 0 1 12 3z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="sticky" id="sticky">
+    <div class="wrap">
+      <div class="toolbar" role="search">
+        <label class="search">
+          <span class="sr">Zoek een bepaling</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm9 16-4-4"/></svg>
+          <input id="q" type="search" placeholder="Zoek bepaling…" autocomplete="off" spellcheck="false">
+        </label>
+        <div class="seg" role="group" aria-label="Geslacht">
+          <button type="button" data-sex="alle" aria-pressed="true">Alle</button>
+          <button type="button" data-sex="m" aria-pressed="false">Man</button>
+          <button type="button" data-sex="v" aria-pressed="false">Vrouw</button>
+        </div>
+      </div>
+      <nav id="nav" aria-label="Categorieën"></nav>
+    </div>
+  </div>
+
+  <main class="wrap" id="main">
+    <section class="notice" aria-labelledby="notice-h">
+      <h2 id="notice-h">Lees dit eerst</h2>
+      <p>
+        Referentie-intervallen verschillen per laboratorium, analyser en methode. Deze site toont per bepaling een
+        representatief Nederlands interval (in de eenheden zoals in Nederland gebruikelijk: mmol/L, µmol/L, g/L en
+        <strong>kPa</strong> voor bloedgas) en daarnaast de <strong>spreiding tussen Nederlandse laboratoria</strong>.
+        Het interval op de uitslag van uw eigen laboratorium is altijd leidend.
+      </p>
+      <p>
+        Dit is naslagmateriaal voor professionals, geen medisch hulpmiddel en geen vervanging van klinisch oordeel of lokaal protocol.
+        Zie <a href="#bronnen">Bronnen en verantwoording</a>. <span class="legend"><b>M</b> = man &middot; <b>V</b> = vrouw</span>
+      </p>
+    </section>
+
+    <section class="card check" id="check" aria-labelledby="check-h">
+      <h2 id="check-h">Snelle waarde-check</h2>
+      <p class="sub">Voer een uitslag in om te zien of die binnen het referentie-interval ligt.</p>
+      <form id="check-form" class="check-grid" autocomplete="off" onsubmit="return false">
+        <label class="field grow">
+          <span>Bepaling</span>
+          <input id="check-test" list="check-list" placeholder="Kies of typ een bepaling, bijv. Kalium" spellcheck="false">
+          <datalist id="check-list"></datalist>
+        </label>
+        <label class="field">
+          <span>Geslacht</span>
+          <select id="check-sex"><option value="m">Man</option><option value="v">Vrouw</option></select>
+        </label>
+        <label class="field">
+          <span>Uitslag <em id="check-unit"></em></span>
+          <input id="check-val" inputmode="decimal" placeholder="bijv. 5,8">
+        </label>
+      </form>
+      <div id="check-out" class="check-out" role="status" aria-live="polite"></div>
+    </section>
+
+    <div class="content-bar">
+      <div id="result-count" class="result-count" aria-live="polite"></div>
+      <button id="toggle-all" class="btn ghost" type="button" aria-pressed="false">Alles uitklappen</button>
+    </div>
+    <div id="content"></div>
+    <p id="no-results" class="no-results" hidden>Geen bepalingen gevonden. Probeer een andere zoekterm, bijvoorbeeld de afkorting of het orgaansysteem.</p>
+
+    <section id="hulpmiddelen" class="tools" aria-labelledby="tools-h">
+      <h2 id="tools-h" class="section-title">Hulpmiddelen</h2>
+      <p class="intro">Alle berekeningen gebeuren lokaal in uw browser; er worden geen gegevens verzonden of opgeslagen.</p>
+
+      <div class="card" id="bg-tool">
+        <h3>Bloedgas-interpretatie</h3>
+        <p class="sub">Stapsgewijze beoordeling van een arterieel bloedgas: primaire stoornis, compensatie, anion gap, delta-ratio en oxygenatie.</p>
+        <form id="bg-form" class="bg-grid" autocomplete="off" onsubmit="return false"></form>
+        <div id="bg-out" class="bg-out" role="status" aria-live="polite"></div>
+        <p class="fine">Hulpmiddel ter ondersteuning; compensatieformules zijn benaderingen en gelden voor eenvoudige, enkelvoudige stoornissen. Interpreteer altijd in het klinische beeld (anamnese, onderzoek, trend).</p>
+      </div>
+
+      <div class="card" id="calc-tool">
+        <h3>Rekenhulpen</h3>
+        <div id="calc-grid" class="calc-grid"></div>
+      </div>
+
+      <div class="card" id="conv-tool">
+        <h3>Eenheden omrekenen</h3>
+        <p class="sub">Veel internationale literatuur gebruikt andere eenheden dan Nederlandse laboratoria (bijv. mmHg, g/dL, mg/dL).</p>
+        <div id="conv" class="conv"></div>
+      </div>
+    </section>
+
+    <section id="bronnen" class="sources" aria-labelledby="src-h">
+      <h2 id="src-h" class="section-title">Bronnen en verantwoording</h2>
+      <p>
+        De referentiewaarden zijn samengesteld uit openbaar beschikbare referentielijsten van Nederlandse laboratoria (geraadpleegd
+        op 12 oktober 2026). Voor elke bepaling is een representatief interval gekozen; afwijkende intervallen van de
+        afzonderlijke laboratoria staan onder &lsquo;Details&rsquo;. Waar geen Nederlandse laboratoriumbron beschikbaar was,
+        is dit vermeld als vuistregel of literatuurwaarde. Aanvullende klinische duiding (oorzaken van afwijkingen, beslisgrenzen)
+        is algemeen gangbare kennis en niet gekoppeld aan één bron.
+      </p>
+      <ul id="src-list"></ul>
+      <p class="fine">
+        De laboratoriumlijsten worden periodiek aangepast en kunnen inmiddels zijn gewijzigd. Bij twijfel prevaleert het interval op uw eigen
+        uitslag, de laboratoriumgids van uw instelling en de geldende richtlijn (o.a. NHG, FMS/Richtlijnendatabase, NVKC).
+        Constateert u een onjuistheid? Meld dit via een <em>issue</em> in de GitHub-repository.
+      </p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p>Normaalwaarden NL &middot; naslag voor professionals &middot; gebruik op eigen verantwoordelijkheid</p>
+    </div>
+  </footer>
+
+  <noscript><p class="wrap noscript">Voor deze pagina is JavaScript nodig.</p></noscript>
+  <script src="js/data.js"></script>
+  <script src="js/calc.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
