@@ -131,11 +131,15 @@ a:hover { color: var(--accent-strong); }
 /* ---------- blokken ---------- */
 main { padding-top: 20px; padding-bottom: 40px; }
 
-.notice { background: var(--warn-bg); color: var(--text); border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent); border-left: 4px solid var(--warn); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 18px; }
-.notice h2 { margin: 0 0 6px; font-size: 1rem; color: var(--warn); }
-.notice p { margin: 0 0 8px; font-size: 0.95rem; }
-.notice p:last-child { margin-bottom: 0; }
-.legend { display: inline-block; margin-left: 8px; color: var(--muted); }
+.notice { background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 14px; font-size: 0.92rem; }
+.notice > summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; cursor: pointer; padding: 8px 14px; color: var(--muted); font-weight: 600; }
+.notice > summary:hover { color: var(--text); }
+.notice[open] { border-left: 4px solid var(--warn); background: var(--warn-bg); }
+.notice[open] > summary { color: var(--warn); }
+.notice-body { padding: 0 14px 10px; }
+.notice-body p { margin: 0 0 8px; }
+.notice-body p:last-child { margin-bottom: 0; }
+.legend { color: var(--muted); font-weight: 400; font-size: 0.88rem; }
 
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; margin-bottom: 18px; }
 .card h2, .card h3 { margin: 0 0 4px; font-size: 1.15rem; }
