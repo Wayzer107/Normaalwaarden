@@ -1,0 +1,11 @@
+{
+  "name": "normaalwaarden-nl",
+  "version": "1.0.0",
+  "description": "Naslag van referentiewaarden voor serum en bloedgas bij volwassenen volgens de Nederlandse laboratoriumpraktijk.",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "node scripts/validate-data.js && node tests/calc.test.js",
+    "serve": "python3 -m http.server 8000"
+  }
+}
