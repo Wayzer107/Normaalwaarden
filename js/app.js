@@ -106,13 +106,7 @@
 
   /* ------------------------------------------------------------ weergave referentie */
 
-  function refTekst(r) {
-    if (!r) return "";
-    if (r.lo != null && r.hi != null) return /^[−+-]/.test(r.lo) || /^[−+-]/.test(r.hi) ? `${r.lo} tot ${r.hi}` : `${r.lo}–${r.hi}`;
-    if (r.hi != null) return `< ${r.hi}`;
-    if (r.lo != null) return `> ${r.lo}`;
-    return "";
-  }
+  const refTekst = C.refTekst;
 
   const fmtNum = (x) => {
     const r = Math.abs(x) >= 100 ? Math.round(x) : Math.round(x);

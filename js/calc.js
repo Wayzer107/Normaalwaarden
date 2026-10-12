@@ -91,6 +91,15 @@
     return 142 * Math.pow(mn, alpha) * Math.pow(mx, -1.2) * Math.pow(0.9938, age) * (vrouw ? 1.012 : 1);
   }
 
+  /** Tekstweergave van een referentie-interval {lo, hi} (strings met decimale komma). */
+  function refTekst(r) {
+    if (!r) return "";
+    if (r.lo != null && r.hi != null) return /^[−+-]/.test(r.lo) || /^[−+-]/.test(r.hi) ? `${r.lo} tot ${r.hi}` : `${r.lo}–${r.hi}`;
+    if (r.hi != null) return `< ${r.hi}`;
+    if (r.lo != null) return `> ${r.lo}`;
+    return "";
+  }
+
   /* ------------------------------------------------------------ interpretatie */
 
   const GRENS = {
@@ -353,7 +362,8 @@
     ckdEpi,
     interpreteerBloedgas,
     OMREKENINGEN,
-    converteer
+    converteer,
+    refTekst
   };
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;
